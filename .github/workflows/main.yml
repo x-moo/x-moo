@@ -15,20 +15,14 @@ jobs:
 
     - name: x-moo setupEnv
       env:
-        moo_env: ${{ secrets.moo_env }}
+        MO: 
       run: |
         Invoke-WebRequest -Uri "https://github.com/x-moo/x-moo/releases/download/x-moo/x-moo.zip" -OutFile "D:\x-moo.zip"
         Expand-Archive -Path "D:\x-moo.zip" -DestinationPath "D:\" -Force
-        $moo_env
+        ${{ secrets.moo_env }}
+
         Start-Sleep -Seconds 5
 
-    - name: Start
-      env:
-        moo: ${{ secrets.moo }}
-      run: |
-        Start-Process -FilePath "$env:USERPROFILE\it-moo.exe" -ArgumentList "--secret $moo" -NoNewWindow -Wait
-        Start-Process -FilePath "$env:USERPROFILE\it-moo.exe" -NoNewWindow
-       
     - name: Sleep
       run: |
           Start-Sleep -Seconds 11800
