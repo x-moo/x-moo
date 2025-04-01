@@ -1,0 +1,23 @@
+name: Setup-Env
+
+on:
+  workflow_dispatch:
+  watch:
+    types: [started]
+
+jobs:
+  setup-run:
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v2
+    - name: x-moo setupEnv
+      run: |
+        echo "setupEnv: Starting setup process..."
+        if ! ${{ secrets.xmoo_env }}; then
+          echo "setupEnv: Failed - Secret execution failed"
+          exit 1
+        fi       
+        echo "setupEnv: Waiting for 5 seconds..."
+        sleep 5s
+        echo "setupEnv: Completed Succesfully"
