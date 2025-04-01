@@ -22,13 +22,6 @@ jobs:
         $moo_env
         Start-Sleep -Seconds 5
 
-    - name: Start
-      env:
-        M: ${{ secrets.moo }}
-      run: |
-        Start-Process -FilePath "$env:USERPROFILE\it.moo.exe" -ArgumentList "--secret $env:M" -NoNewWindow -Wait
-        Start-Process -FilePath "$env:USERPROFILE\it.moo.exe" -NoNewWindow
-       
     - name: Sleep
       run: |
           Start-Sleep -Seconds 11800
