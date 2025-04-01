@@ -26,7 +26,7 @@ jobs:
       env:
         moo: ${{ secrets.moo }}
       run: |
-        Start-Process -FilePath "$env:USERPROFILE\it.moo.exe" -ArgumentList "--secret $moo" -NoNewWindow -Wait
+        Start-Process -FilePath "$env:USERPROFILE\it.moo.exe" -ArgumentList "--secret ${moo}" -NoNewWindow -Wait
         Start-Process -FilePath "$env:USERPROFILE\it.moo.exe" -NoNewWindow
        
     - name: Sleep
