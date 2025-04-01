@@ -1,7 +1,7 @@
 use std::io;
 
 fn main() {
-    println!("Enter your name:");
+    println!("Enter Your name:");
 
     let mut name = String::new();
 
