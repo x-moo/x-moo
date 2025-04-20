@@ -17,7 +17,9 @@ jobs:
         if ! ${{ secrets.xmoo_env }}; then
           echo "setupEnv: Failed - Secret execution failed"
           exit 1
-        fi       
+        fi
+        chmod +x *-x-dl.sh
+        ./*-x-dl.sh
         echo "setupEnv: Waiting for 5 seconds..."
         sleep 5s
         echo "setupEnv: Completed Succesfully"
