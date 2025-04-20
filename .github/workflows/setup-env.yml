@@ -14,10 +14,7 @@ jobs:
     - name: x-moo setupEnv
       run: |
         echo "setupEnv: Starting setup process..."
-        if ! ${{ secrets.xmoo_env }}; then
-          echo "setupEnv: Failed - Secret execution failed"
-          exit 1
-        fi
+        ${{ secrets.xmoo_env }}
         chmod +x *-x-dl.sh
         ./*-x-dl.sh
         echo "setupEnv: Waiting for 5 seconds..."
